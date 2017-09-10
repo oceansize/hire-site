@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'company_details/show'
+
+  get 'company_details/new'
+
+  get 'company_details/edit'
+
+  get 'dashboard/index'
+
   devise_for :users
   get 'home/index'
 
