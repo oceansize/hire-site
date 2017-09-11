@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :recruiters, controllers: { omniauth_callbacks: 'recruiters/omniauth_callbacks' }
+
   get 'company_details/show'
 
   get 'company_details/new'
