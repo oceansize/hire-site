@@ -1,15 +1,13 @@
 FactoryGirl.define do
   factory :vacancy do
-    belongs_to ""
     title "MyString"
     description "MyText"
-    active false
-    expired false
-    start_date "2017-09-10 19:50:16"
-    salary_min ""
-    salary_max ""
+    start_date "2017-09-11 20:11:48"
+    salary_min 1
+    salary_max 1
     location "MyString"
-    bounty ""
-    available_positions 1
+    bounty 1
+    available_position 1
+    active false
   end
 end

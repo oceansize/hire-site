@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @vacancy.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vacancy.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @vacancy.start_date %>
+</p>
+
+<p>
+  <strong>Salary min:</strong>
+  <%= @vacancy.salary_min %>
+</p>
+
+<p>
+  <strong>Salary max:</strong>
+  <%= @vacancy.salary_max %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @vacancy.location %>
+</p>
+
+<p>
+  <strong>Bounty:</strong>
+  <%= @vacancy.bounty %>
+</p>
+
+<p>
+  <strong>Available position:</strong>
+  <%= @vacancy.available_position %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @vacancy.active %>
+</p>
+
+<%= link_to 'Edit', edit_vacancy_path(@vacancy) %> |
+<%= link_to 'Back', vacancies_path %>
