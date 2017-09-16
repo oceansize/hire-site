@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :vacancies
   devise_for :recruiters, controllers: { omniauth_callbacks: 'recruiters/omniauth_callbacks' }
 
-  resource :company_details
+  resource :company, except: [:index, :destroy]
   resource :settings
   resources :enquiries
 

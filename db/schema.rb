@@ -17,11 +17,10 @@ ActiveRecord::Schema.define(version: 20170912174440) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
+    t.text "description"
     t.string "size"
-    t.string "url"
-    t.text "info"
-    t.string "location"
+    t.string "website"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
