@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   resources :vacancies
   devise_for :recruiters, controllers: { omniauth_callbacks: 'recruiters/omniauth_callbacks' }
 
-  get 'company_details/show'
-
-  get 'company_details/new'
-
-  get 'company_details/edit'
+  resource :company_details
+  resource :settings
+  resources :enquiries
 
   get 'dashboard/index'
 

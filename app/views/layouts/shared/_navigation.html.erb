@@ -7,7 +7,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <button type="button" class="btn btn-outline-light">I'm a recruiter</button>
+        <% if user_signed_in?%>
+        <%= link_to('Sign out', destroy_user_session_path, method: :delete, class:"btn-light btn-lg") %>
+        <% else %>
+        <a href=<%=new_user_registration_url%> class="btn-outline-light" role="button">I'm a recruiter</a>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="#about">about</a>
         </li>
@@ -15,3 +19,8 @@
     </div>
   </div>
 </nav>
+<% if current_user.is_a?(User)%>
+<%= render 'layouts/shared/company_navigation' %>
+<% elsif current_user.is_a?(Recruiter)%>
+<%= render 'layouts/shared/recruiter_navigation' %>
+<% end %>
