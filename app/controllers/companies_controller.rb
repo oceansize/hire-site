@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update]
+  before_action :set_page_name
 
   def show
     redirect_to new_company_path unless @company
@@ -57,5 +58,9 @@ class CompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:name, :description, :size, :website, :user_id, :avatar)
+    end
+
+    def set_page_name
+      @page_name = 'company'
     end
 end

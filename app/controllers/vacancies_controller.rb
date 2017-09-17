@@ -1,5 +1,6 @@
 class VacanciesController < ApplicationController
   before_action :set_vacancy, only: [:show, :edit, :update, :destroy]
+  before_action :set_page_name
 
   # GET /vacancies
   # GET /vacancies.json
@@ -70,5 +71,9 @@ class VacanciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def vacancy_params
       params.require(:vacancy).permit(:title, :description, :start_date, :salary_min, :salary_max, :location, :bounty, :available_position, :active)
+    end
+
+    def set_page_name
+      @page_name = 'vacancy'
     end
 end
