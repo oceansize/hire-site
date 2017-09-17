@@ -1,8 +1,8 @@
  <% tabs = [{name: "Dashboard", path: dashboard_path , class: (@page_name == "dashboard" ? "active" : nil)},
-          {name: "Vacancies", path: vacancies_path, class: (@page_name == "vacancy" ? "active" : nil)},
-         {name: "Enquiries", path: enquiries_path, class: (@page_name == "enquiries" ? "active" : nil)},
-         {name: "Settings", path: settings_path, class: (@page_name == "settings" ? "active" : nil)},
-          {name: "Company Details", path: company_path ,class: (@page_name == "company" ? "active" : nil)}]%>
+            {name: "Vacancies", path: vacancies_path, class: (@page_name == "vacancy" ? "active" : nil)},
+            {name: "Enquiries", path: enquiries_path, class: (@page_name == "enquiries" ? "active" : nil)},
+            {name: "Settings", path: settings_path, class: (@page_name == "settings" ? "active" : nil)},
+            {name: "Company Details", path: company_path, class: (@page_name == "company" ? "active" : nil)}]%>
 
 <ul class="nav nav-tabs">
   <% tabs.each do |tab| %>
