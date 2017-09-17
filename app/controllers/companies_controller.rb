@@ -47,9 +47,11 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      p current_user
-      redirect_to root_path if current_user.nil?
-      @company = current_user.company
+      if current_user.nil?
+        redirect_to root_path
+      else
+        @company = current_user.company
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

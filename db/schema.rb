@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912174440) do
+ActiveRecord::Schema.define(version: 20170917130548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20170912174440) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "enquiries", force: :cascade do |t|
+    t.string "type"
+    t.text "message"
+    t.boolean "read"
+    t.bigint "user_id"
+    t.bigint "recruiter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recruiter_id"], name: "index_enquiries_on_recruiter_id"
+    t.index ["user_id"], name: "index_enquiries_on_user_id"
   end
 
   create_table "recruiters", force: :cascade do |t|
@@ -89,4 +101,6 @@ ActiveRecord::Schema.define(version: 20170912174440) do
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "enquiries", "recruiters"
+  add_foreign_key "enquiries", "users"
 end

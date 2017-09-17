@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   devise_for :recruiters, controllers: { omniauth_callbacks: 'recruiters/omniauth_callbacks' }
 
   resource :company, except: [:index, :destroy]
-  resource :settings
+  get :settings, controller: :settings, action: :index
+
   resources :enquiries
 
-  get 'dashboard/index'
+  get :dashboard, controller: :dashboard, action: :index
 
   devise_for :users
-  get 'home/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
