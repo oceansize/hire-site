@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update]
   before_action :set_page_name
+  before_action :user_signed_in
+
 
   def show
     redirect_to new_company_path unless @company

@@ -1,6 +1,8 @@
 class VacanciesController < ApplicationController
   before_action :set_vacancy, only: [:show, :edit, :update, :destroy]
   before_action :set_page_name
+  before_action :user_signed_in
+
 
   # GET /vacancies
   # GET /vacancies.json
