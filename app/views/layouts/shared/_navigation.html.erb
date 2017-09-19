@@ -19,8 +19,8 @@
     </div>
   </div>
 </nav>
-<% if current_user.is_a?(User)%>
+<% if user_signed_in?%>
 <%= render 'layouts/shared/company_navigation' %>
-<% elsif current_user.is_a?(Recruiter)%>
+<% elsif recruiter_signed_in?%>
 <%= render 'layouts/shared/recruiter_navigation' %>
 <% end %>

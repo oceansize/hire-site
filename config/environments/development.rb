@@ -62,8 +62,8 @@ Rails.application.configure do
     s3_credentials: {
       s3_host_name: 's3.eu-west-2.amazonaws.com',
       bucket: 'justhire',
-      access_key_id: '',
-      secret_access_key: ''
+      access_key_id: 'AKIAIVMNVHU722UZMVYA',
+      secret_access_key: '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'
       }
     }
 end

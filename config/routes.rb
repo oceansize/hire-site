@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   resource :company, except: [:index, :destroy]
   get :settings, controller: :settings, action: :index
 
+  namespace :recruiters do
+    get :dashboard
+    get :vacancies
+    get :enquiries
+    get :profile
+  end
+
   resources :enquiries
 
   get :dashboard, controller: :dashboard, action: :index

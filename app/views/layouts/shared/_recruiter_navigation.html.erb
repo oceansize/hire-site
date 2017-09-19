@@ -1,0 +1,12 @@
+<% tabs = [{name: "Dashboard", path: recruiters_dashboard_path , class: (@page_name == "dashboard" ? "active" : nil)},
+           {name: "Vacancies", path: recruiters_vacancies_path, class: (@page_name == "vacancy" ? "active" : nil)},
+           {name: "Enquiries", path: recruiters_enquiries_path, class: (@page_name == "enquiries" ? "active" : nil)},
+           {name: "Profile", path: recruiters_profile_path, class: (@page_name == "profile" ? "active" : nil)}]%>
+
+<ul class="nav nav-tabs">
+ <% tabs.each do |tab| %>
+   <li class="nav-item">
+     <a class="nav-link <%=tab[:class]%>" href=<%=tab[:path]%>><%=tab[:name]%></a>
+   </li>
+ <% end %>
+</ul>
