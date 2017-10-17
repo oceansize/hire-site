@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     get :vacancies
     get :enquiries
     get :profile
+
+    get 'vacancy_enquiry/:id', action: :vacancy_enquiry, as: :vacancy_enquiry
+    post 'vacancy_enquiry/:id', action: :vacancy_enquiry_message, as: :vacancy_enquiry_message
+  end
+
+  namespace :companies do
+      post 'vacancy_enquiry/:id', action: :vacancy_enquiry_message, as: :vacancy_enquiry_message
   end
 
   resources :enquiries

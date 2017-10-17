@@ -1,7 +1,5 @@
-<% @vacancies.each do |v| %>
-  <%= v.title %>
-  <%= recruiters_vacancy_enquiry_path(v) %>
-<% end %>
+<%= @vacancy.title %>
+<%= @vacancy.description %>
 
 <%= form_tag(recruiters_vacancy_enquiry_message_path(@vacancy), method: :post) do %>
   <%= label_tag(:message, "Message:") %>

@@ -27,7 +27,7 @@ class VacanciesController < ApplicationController
   # POST /vacancies
   # POST /vacancies.json
   def create
-    @vacancy = Vacancy.new(vacancy_params)
+    @vacancy = Vacancy.new(vacancy_params.merge(company_id: Company.find_by(user_id: current_user.id)))
 
     respond_to do |format|
       if @vacancy.save
@@ -72,7 +72,10 @@ class VacanciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vacancy_params
-      params.require(:vacancy).permit(:title, :description, :start_date, :salary_min, :salary_max, :location, :bounty, :available_position, :active)
+      params.require(:vacancy).permit(:title, :description, :start_date,
+                                      :salary_min, :salary_max, :location,
+                                      :bounty, :available_position,
+                                      :active, :requirements)
     end
 
     def set_page_name

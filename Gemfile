@@ -1,5 +1,16 @@
 source 'https://rubygems.org'
 
+
+# potentional gems to use for future optimisation
+# clever searching
+# https://github.com/ankane/searchkick
+# meta pages for seo
+# https://github.com/lassebunk/metamagic
+# authenticaion
+# https://github.com/CanCanCommunity/cancancan
+# paginator
+# https://github.com/kaminari/kaminari
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"

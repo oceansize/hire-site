@@ -1,3 +1,8 @@
 <% @page_name = 'enquiries' %>
 <h1>Enquiries#index</h1>
 <p>Find me in app/views/enquiries/index.html.erb</p>
+
+<% @enquiries.each do |recreuiter_id, enquiry| %>
+ <%= enquiry.first.message%> seen: <%= enquiry.first.seen %>
+ <a href="<%= enquiry_path(enquiry.first)%>">View</a>
+<%end%>

@@ -47,6 +47,14 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def vacancy_enquiry_message
+    reply = Enquiry.find(params[:id])
+    @vacancy = Vacancy.find(reply.vacancy_id)
+    enquiry = Enquiry.new(vacancy: @vacancy, user_id: current_user.id, message: params[:message])
+    enquiry.save!
+    redirect_to enquiry_path(enquiry)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917130548) do
+ActiveRecord::Schema.define(version: 20170925182127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,15 @@ ActiveRecord::Schema.define(version: 20170917130548) do
     t.string "type"
     t.text "message"
     t.boolean "read"
-    t.bigint "user_id"
-    t.bigint "recruiter_id"
+    t.bigint "vacancy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "recruiter_id"
+    t.bigint "user_id"
+    t.boolean "seen", default: false
     t.index ["recruiter_id"], name: "index_enquiries_on_recruiter_id"
     t.index ["user_id"], name: "index_enquiries_on_user_id"
+    t.index ["vacancy_id"], name: "index_enquiries_on_vacancy_id"
   end
 
   create_table "recruiters", force: :cascade do |t|
@@ -82,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170917130548) do
     t.string "last_name"
     t.string "phone_number"
     t.string "job_title"
+    t.integer "company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -98,9 +102,11 @@ ActiveRecord::Schema.define(version: 20170917130548) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id"
   end
 
   add_foreign_key "companies", "users"
   add_foreign_key "enquiries", "recruiters"
   add_foreign_key "enquiries", "users"
+  add_foreign_key "enquiries", "vacancies"
 end

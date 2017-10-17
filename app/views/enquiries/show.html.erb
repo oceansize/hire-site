@@ -1,0 +1,9 @@
+<% @enquiries.each do |enquiry| %>
+  <%=enquiry.message%>
+<%end%>
+
+<%= form_tag(companies_vacancy_enquiry_message_path(@enquiries.last), method: :post) do %>
+  <%= label_tag(:message, "Message:") %>
+  <%= text_field_tag(:message) %>
+  <%= submit_tag("Send") %>
+<% end %>
