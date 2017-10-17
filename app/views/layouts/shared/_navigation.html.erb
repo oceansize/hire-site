@@ -10,7 +10,7 @@
         <% if user_signed_in?%>
         <%= link_to('Sign out', destroy_user_session_path, method: :delete, class:"btn-light btn-lg") %>
         <% else %>
-        <a href=<%=new_user_registration_url%> class="btn-outline-light" role="button">I'm a recruiter</a>
+        <a href=<%=new_recruiter_session_path%> class="btn-outline-light" role="button">I'm a recruiter</a>
         <% end %>
         <li class="nav-item">
           <a class="nav-link" href="#about">about</a>
