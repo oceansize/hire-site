@@ -2,9 +2,7 @@ require 'aws-sdk'
 class Recruiter < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:linkedin]
+  devise :database_authenticatable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:linkedin]
 
   has_attached_file :avatar,styles: { medium: "300x300>", thumb: "100x100>" },default_url: "/images/:style/missing.png", s3_region: 'eu-west-2'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
